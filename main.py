@@ -18,7 +18,8 @@ def showMenu():
     print("2. View Cart")
     print("3. Add Item to Cart")
     print("4. Remove Item from Cart")
-    print("5. Exit")
+    print("5. Purchase Items")
+    print("6. Exit")
 
 
 
@@ -114,6 +115,8 @@ while True:
     elif option == "4":
         deleteCartItem()
     elif option == "5":
+        purchaseItems()
+    elif option == "6":
         print("Thank you for using our shopping cart, see you later!")
         break
     else:
