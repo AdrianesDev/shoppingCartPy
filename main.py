@@ -8,7 +8,7 @@ products = {
     "Eggs": 15
 }
 
-# Inicializamos el carrito como una lista vacía para almacenar los ítems
+# Inicializamos el carrito como una lista vacía para almacenar los ítems.
 cart = []
 
 # Función para mostrar el menú
