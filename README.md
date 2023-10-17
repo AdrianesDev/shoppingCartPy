@@ -1,1 +1,2 @@
 # shoppingCartPy
+# schoolProject
