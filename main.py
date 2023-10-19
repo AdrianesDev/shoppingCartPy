@@ -1,5 +1,8 @@
 # Dinero inicial del usuario
 availableMoney = 100
+# Variable para que el usuario agrega cualquier otro producto 
+other_products=None
+
 # Diccionario que contiene los productos y sus precios
 products = {
     "1. Water": 10,
@@ -60,7 +63,9 @@ def purchaseItems():
             total += 20
         elif item == "Eggs":
             total += 15
- 
+        elif item == other_products:
+            total += 5
+            
     print(f"Total amount: ${total}")
     # Limpiamos el carrito después de la compra
     cart.clear()
@@ -68,6 +73,7 @@ def purchaseItems():
 
 
 def addProduct():
+    global other_products
     if len(cart) >= 10:
         print("Sorry, you cannot add more than 10 products to the cart.")
     else:
@@ -80,10 +86,10 @@ def addProduct():
             product = "Milk"
         elif selection == "3":
             product = "Eggs"
-        elif selection == "4":
-            # Variable para que el usuario agrega cualquier otro producto 
-            other_products=input ("What do you want to add? ")
-            product =(f"""{other_products}""")
+        
+        elif selection =="4": 
+           other_products=input ("What do you want to add? ")
+           product =(f"""{other_products}""")
         else:
             print("Invalid option. Please select a valid number.")
 
