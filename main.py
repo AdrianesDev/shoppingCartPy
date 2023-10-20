@@ -3,13 +3,14 @@ availableMoney = 100
 # Variable para que el usuario agrega cualquier otro producto 
 other_products=None
 
+
 # Diccionario que contiene los productos y sus precios
 products = {
     "1. Water": 10,
     "2. Milk": 20,
     "3. Eggs": 15,
     "4. Other Products": 5,
-     
+    
 }
 
 # Inicializamos el carrito como una lista vacía para almacenar los ítems
@@ -48,12 +49,40 @@ def showPurchasedItems():
         for item in cart:
             print("- " + item)
        
+#Funcion para validar compra 
 
+def validatePurchase(total):
+    askPurchase=None
+    
+    #Variable para preguntar al cliente si desea hacer su compra 
+    askPurchase=input("Do you want to make your parchase, (Y/N): ")
+    
+    if askPurchase.lower() == 'y':
+    
+        
+        
+        #Validar si el saldo es suficiente para la compra
+        if availableMoney >= total:
+            print("Your purchase was successful")
+            # Limpiamos el carrito después de la compra
+            cart.clear()
+        else:
+            print ("Sorry, your balance is not enough,delete an item ")
+            deleteCartItem()
+             
+    elif askPurchase.lower() == 'n':
+        print("tanks ")
+    else:
+        print("invalid option ") 
+    
+    
 # Función para comprar ítems en el carrito
 
 def purchaseItems():
     total = 0
+    
     print("Items in your cart:")
+    
     for item in cart:
         print("- " + item) 
         # Calculamos el total sumando el precio de los productos
@@ -67,8 +96,7 @@ def purchaseItems():
             total += 5
             
     print(f"Total amount: ${total}")
-    # Limpiamos el carrito después de la compra
-    cart.clear()
+    validatePurchase(total)
 
 
 
@@ -81,7 +109,7 @@ def addProduct():
         selection = input("Select a product (1-4): ")
         product = None
         if selection == "1":
-            product = " Water"
+            product = "Water"
         elif selection == "2":
             product = "Milk"
         elif selection == "3":
