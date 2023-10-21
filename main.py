@@ -26,9 +26,6 @@ def showMenu():
     print("5. Total Amount")
     print("6. Exit")
 
-
-
-
 # Función para mostrar el menú de productos disponibles
 def showProducts():
   print("Menu:")
@@ -71,7 +68,7 @@ def validatePurchase(total):
             deleteCartItem()
              
     elif askPurchase.lower() == 'n':
-        print("tanks ")
+        print("thank you for visit store  ")
     else:
         print("invalid option ") 
     
@@ -82,22 +79,23 @@ def purchaseItems():
     total = 0
     
     print("Items in your cart:")
-    
-    for item in cart:
-        print("- " + item) 
-        # Calculamos el total sumando el precio de los productos
-        if item == "Water":
-            total += 10
-        elif item == "Milk":
-            total += 20
-        elif item == "Eggs":
-            total += 15
-        elif item == other_products:
-            total += 5
-            
-    print(f"Total amount: ${total}")
-    validatePurchase(total)
-
+    if len(cart) !=0:
+        for item in cart:
+            print("- " + item) 
+            # Calculamos el total sumando el precio de los productos
+            if item == "Water":
+                total += 10
+            elif item == "Milk":
+                total += 20
+            elif item == "Eggs":
+                total += 15
+            elif item == other_products:
+                total += 5
+              
+        print(f"Total amount: ${total}")
+        validatePurchase(total)
+    else: 
+        print("Your cart is empty.")
 
 
 def addProduct():
